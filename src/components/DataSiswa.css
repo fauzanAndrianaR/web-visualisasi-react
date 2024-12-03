@@ -1,0 +1,136 @@
+.visualisasi-container {
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  .controls-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .dropdown-container {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .search-container {
+    flex: 1;
+  }
+  
+  .charts-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .bar-chart {
+    flex: 4;
+    max-width: 80%;
+  }
+  
+  .pie-chart {
+    flex: 1;
+    max-width: 20%;
+  }
+  
+  .table-container {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  
+  thead tr {
+    background-color: #3b82f6;
+    color: white;
+  }
+  
+  tbody tr {
+    background-color: #f97316;
+    color: white;
+  }
+  
+  th, td {
+    border: 1px solid white;
+    padding: 10px;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  button {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #a5b4fc;
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: #2563eb;
+  }
+  
+  /* Dropdown dan Search Styling */
+.dropdown-container,
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.dropdown-container label,
+.search-container input {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.dropdown-container select,
+.search-container input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.dropdown-container select:focus,
+.search-container input:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 768px) {
+  .controls-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .dropdown-container,
+  .search-container {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .dropdown-container select,
+  .search-container input {
+    width: 100%;
+  }
+}

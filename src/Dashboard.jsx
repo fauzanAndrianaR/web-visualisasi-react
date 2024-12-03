@@ -1,5 +1,7 @@
 import Header from './components/Header';
 import DataVisualization from './components/DataVisualization';
+import DataSiswa from './components/DataSiswa';
+
 import Footer from './components/Footer';
 function Dashboard (){
 
@@ -17,6 +19,8 @@ function Dashboard (){
         <span>K</span>
       </h1>
             <DataVisualization/>
+
+            <DataSiswa/>
             <Footer />
         </div>
     )
