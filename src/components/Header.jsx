@@ -1,27 +1,40 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Header() {
+  const [dropdownVisible, setDropdownVisible] = useState(false);
+  const navigate = useNavigate();
+
+  const handleDropdownClick = (type) => {
+    navigate(`/dashboard?type=${type}`);
+  };
+
   return (
     <header>
-      {/* Menu bar icon */}
       <div id="menu-bar" className="fas fa-bars"></div>
-
-      {/* Logo */}
       <Link to="/" className="logo">
-      <img src="logodisdik.png" alt="Logo Disdik" className="logo-img" />
+        <img src="logodisdik.png" alt="Logo Disdik" className="logo-img" />
         <span>VISUALISASI</span> TIKomDik
       </Link>
-
-      {/* Navigation links */}
       <nav className="navbar">
-      <Link to="/" className="nav-link">Home</Link>
-      <Link to="/about" className="nav-link">About</Link>
-      <Link to="/looker" className="nav-link">Looker</Link>
-      <Link to="/dashboard" className="nav-link">Dashboard</Link>
+        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/about" className="nav-link">About</Link>
+        <Link to="/looker" className="nav-link">Looker</Link>
+        <div
+          className="nav-link dropdown"
+          onMouseEnter={() => setDropdownVisible(true)}
+          onMouseLeave={() => setDropdownVisible(false)}
+        >
+          Dashboard
+          {dropdownVisible && (
+            <div className="dropdown-menu">
+              <button onClick={() => handleDropdownClick("siswa")}>Data Siswa</button>
+              <button onClick={() => handleDropdownClick("guru")}>Data Guru</button>
+              <button onClick={() => handleDropdownClick("sekolah")}>Data Sekolah</button>
+            </div>
+          )}
+        </div>
       </nav>
-
-     
-
     </header>
   );
 }

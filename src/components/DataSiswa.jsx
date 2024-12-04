@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
+import { useLocation } from "react-router-dom";
 import "chart.js/auto";
 import "./DataSiswa.css";
 
@@ -11,10 +12,15 @@ const DataSiswa = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
+  
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const type = queryParams.get("type") || "siswa";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/siswa");
+        const response = await fetch(`http://localhost:3000/${type}`);
         const result = await response.json();
         setData(result || []);
         setFilteredData(result || []);
@@ -24,7 +30,7 @@ const DataSiswa = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [type]);
 
   useEffect(() => {
     let tempData = data;
@@ -105,6 +111,8 @@ const DataSiswa = () => {
   return (
     <div className="visualisasi-container">
       <h1>Visualisasi Data Siswa</h1>
+      <h1>Data {type.charAt(0).toUpperCase() + type.slice(1)}</h1>
+
 
       <div className="controls-container">
         <div className="dropdown-container">
