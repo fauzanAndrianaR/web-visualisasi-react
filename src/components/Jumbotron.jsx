@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function Jumbotron() {
   return (
@@ -5,7 +6,7 @@ function Jumbotron() {
       <div className="content">
         <h3>Balai Teknologi Informasi dan Komunikasi Pendidikan Disdik Jabar</h3>
         <p>Visualisasi Data</p>
-        <a href="dashboard.html" className="btn">Dashboard</a>
+        <Link to="/dashboard" className="btn">Dashboard</Link>
       </div>
 
       <div className="video-container">

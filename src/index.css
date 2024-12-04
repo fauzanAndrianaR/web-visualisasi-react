@@ -67,18 +67,22 @@ section{
     background: rgba(255,165,0,.2);
     color:var(--goldenrod);
 }
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    background:#003161;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 49, 97, 0.8); /* Transparansi ditambahkan */
     z-index: 1000;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 2rem 9%;
+    transition: background 0.3s ease; /* Transisi halus */
+}
+
+header:hover {
+    background: #003161; /* Warna solid saat di-hover */
 }
 
 header .logo{
@@ -92,12 +96,18 @@ header .logo span{
     color: var(--goldenrod);
 }
 
-header .navbar a{
+.logo-img {
+    width: 70px; /* Ukuran logo */
+    height: auto;
+    margin-right: 10px; /* Jarak antara logo dan teks */
+  }
+
+header .navbar .nav-link{
     color: white;
     font-size: 2rem;
     margin: .8rem;
 }
-header .navbar a:hover{
+header .navbar .nav-link:hover{
     color:goldenrod;
 }
 
@@ -140,7 +150,11 @@ header .icons i:hover{
     font-size: 4.5rem;
     color: #fff;
     text-transform: uppercase;
-    text-shadow: 0 .3rem .5rem rgba(0, 0,0,.1);
+    text-shadow: 
+      -2px -2px 0 blue, /* Bayangan ke kiri atas */
+      2px -2px 0 blue,  /* Bayangan ke kanan atas */
+      -2px 2px 0 blue,  /* Bayangan ke kiri bawah */
+      2px 2px 0 blue;   /* Bayangan ke kanan bawah */
 }
 
 .home .content p{

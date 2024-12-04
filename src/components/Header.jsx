@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -6,16 +7,17 @@ function Header() {
       <div id="menu-bar" className="fas fa-bars"></div>
 
       {/* Logo */}
-      <a href="#" className="logo">
+      <Link to="/" className="logo">
+      <img src="logodisdik.png" alt="Logo Disdik" className="logo-img" />
         <span>VISUALISASI</span> TIKomDik
-      </a>
+      </Link>
 
       {/* Navigation links */}
       <nav className="navbar">
-        <a href="/">Home</a>
-        <a href="#about">About</a>
-        <a href="/looker">Looker</a>
-        <a href="/dashboard">Dashboard</a>
+      <Link to="/" className="nav-link">Home</Link>
+      <Link to="/about" className="nav-link">About</Link>
+      <Link to="/looker" className="nav-link">Looker</Link>
+      <Link to="/dashboard" className="nav-link">Dashboard</Link>
       </nav>
 
      
