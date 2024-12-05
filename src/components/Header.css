@@ -1,0 +1,123 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 49, 97, 0.8); /* Transparansi ditambahkan */
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: auto auto 1fr; /* 3 kolom: logo, spacer, navbar */
+    align-items: center;
+    padding: 2rem 9%;
+    transition: background 0.3s ease; /* Transisi halus */
+}
+
+header:hover {
+    background: #003161; /* Warna solid saat di-hover */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+header .logo span {
+    color: var(--goldenrod);
+}
+
+.logo-img {
+    width: 70px; /* Ukuran logo */
+    height: auto;
+    margin-right: 10px; /* Jarak antara logo dan teks */
+}
+
+header .navbar {
+    display: flex;
+    justify-content: flex-end; /* Memastikan elemen navbar ke kanan */
+    gap: 2rem; /* Spasi antar-link */
+    grid-column: 3; /* Memindahkan navbar ke kolom paling kanan */
+}
+
+header .navbar .nav-link {
+    color: white;
+    font-size: 2rem;
+    margin: 0.8rem;
+}
+
+header .navbar .nav-link:hover {
+    color: goldenrod;
+}
+
+header .icons {
+    display: flex;
+    gap: 2rem; /* Spasi antar-icon */
+}
+
+header .icons i {
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+header .icons i:hover {
+    color: var(--goldenrod);
+}
+
+#menu-bar {
+    color: #003161;
+    border: 0.1rem solid goldenrod;
+    border-radius: 0.5rem;
+    font-size: 3rem;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    display: none;
+}
+
+.dropdown-menu {
+    position: absolute; 
+    background: rgba(0, 49, 97, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    min-width: 200px; /* Lebar minimum dropdown */
+}
+
+.dropdown-menu button {
+    padding: 1rem 2rem;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: #fff;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu button:hover {
+    background-color: rgba(255, 155, 0, 0.2); /* Sesuai dengan hover utama */
+    color: var(--goldenrod);
+}
+
+/* Style panah dropdown */
+.nav-link .arrow {
+    margin-left: 0.5rem;
+    display: inline-block;
+    width: 0;
+    height: 8px;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.5rem solid white; /* Panah mengarah ke bawah */
+    transition: transform 0.3s ease;
+}
+
+/* Panah ketika dropdown terbuka */
+.nav-link .arrow.open {
+    transform: rotate(180deg); /* Rotasi ke atas */
+    border-top-color: var(--goldenrod); /* Ubah warna panah saat terbuka */
+}

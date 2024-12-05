@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import "./Header.css";
+
 
 function Header() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -25,7 +27,8 @@ function Header() {
           onMouseEnter={() => setDropdownVisible(true)}
           onMouseLeave={() => setDropdownVisible(false)}
         >
-          Dashboard
+          Dashboard 
+          <span className={`arrow ${dropdownVisible ? "open" : ""}`}></span>
           {dropdownVisible && (
             <div className="dropdown-menu">
               <button onClick={() => handleDropdownClick("siswa")}>Data Siswa</button>
