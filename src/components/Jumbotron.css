@@ -1,0 +1,58 @@
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+    z-index: 0;
+}
+
+.home .content {
+    text-align: center;
+    position: relative; /* Pastikan konten tetap di atas video */
+    z-index: 1; /* Pastikan konten di atas layer video */
+}
+
+.home .content h3 {
+    font-size: 4.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    
+}
+
+.home .content p {
+    font-size: 2.5rem;
+    color: #fff;
+    padding: .5rem 0;
+}
+
+.home .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.home .video-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Menggunakan lapisan gelap lebih kuat dengan 0.9 opacity */
+    z-index: 1; /* Memastikan lapisan gelap berada di atas video */
+}
+
+.home .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Pastikan video tetap berada di bawah lapisan gelap */
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

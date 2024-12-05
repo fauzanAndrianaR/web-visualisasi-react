@@ -69,47 +69,6 @@ section{
 }
 
 
-.home{
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-flow: column;
-    position: relative;
-    z-index: 0;
-}
-
-.home .content{
-    text-align: center;
-}
-
-.home .content h3{
-    font-size: 4.5rem;
-    color: #fff;
-    text-transform: uppercase;
-    text-shadow: 
-      -2px -2px 0 blue, /* Bayangan ke kiri atas */
-      2px -2px 0 blue,  /* Bayangan ke kanan atas */
-      -2px 2px 0 blue,  /* Bayangan ke kiri bawah */
-      2px 2px 0 blue;   /* Bayangan ke kanan bawah */
-}
-
-.home .content p{
-    font-size: 2.5rem;
-    color: #fff;
-   padding:.5rem 0;
-}
-
-.home .video-container video{
-    position:absolute;
-    top:0;
-    left:0;
-    z-index: -1;
-    height:100%;
-    width:100%;
-    object-fit: cover;
-}
-
 
 
 
