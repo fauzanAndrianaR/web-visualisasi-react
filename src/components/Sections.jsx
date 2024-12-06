@@ -1,8 +1,9 @@
+import "./Sections.css"
 
-function About() {
+function Sections() {
   return (
-    <section className="section whyus" id="whyus">
-      <h1 className="heading" id="about">
+    <section className="section whyus">
+      <h1 className="heading">
         <span>T</span>
         <span>I</span>
         <span>K</span>
@@ -23,21 +24,11 @@ function About() {
             kegiatan teknis operasional dan/atau kegiatan teknis penunjang tertentu bidang teknologi 
             informasi dan komunikasi pendidikan, meliputi pengembangan dan produksi serta pelayanan dan promosi.
           </p>
-          <a href="#" className="btn">Read more</a>
+          <a href="/about" className="btn">Read more</a>
         </div>
       </div>
-      <h1 className="heading" id="about">
-        <span>T</span>
-        <span>I</span>
-        <span>K</span>
-        <span>O</span>
-        <span>M</span>
-        <span>D</span>
-        <span>I</span>
-        <span>K</span>
-      </h1>
     </section>
   );
 }
 
-export default About;
+export default Sections;

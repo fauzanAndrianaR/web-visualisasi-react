@@ -1,0 +1,100 @@
+/* Gaya untuk heading */
+.section {
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 6%;
+    margin-left: 8%;
+    margin-right: 8%;
+    background-color: white;
+}
+.section .heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.section .heading span {
+    display: inline-block;
+    color: #003161;
+    font-size: 4rem;
+    animation: bounce 1s ease-in-out infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.section .heading span:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.section .heading span:nth-child(even) {
+    animation-delay: 0.2s;
+}
+.btn{
+    display: inline-block;
+    margin-top:1rem;
+    background:var(--goldenrod);
+    color:#fff;
+    padding:.8rem 3rem;
+    border: .2rem solid var(--goldenrod);
+    cursor:pointer;
+    font-size: 1.7rem;
+}
+
+.btn:hover{
+    background: rgba(255,165,0,.2);
+    color:var(--goldenrod);
+}
+
+
+
+
+
+
+.whyus .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.whyus .row .image{
+    flex:1 1 45rem;
+    box-shadow: 0 1rem 2rem #003161;
+    border-radius: 4%;
+    margin-right: 3rem;
+    margin-left: 3rem;
+    height: fit-content;
+}
+.whyus .row .image img{
+    width: 100%;
+    border-radius: 4%;
+
+}
+.whyus .row .content{
+    flex:1 1 45rem;
+    padding:2rem;
+}
+.whyus .row .content h3{
+    font-size: 4rem;
+    color: #003161;
+    text-align: center;
+}
+
+.whyus .row .content p{
+    font-size: 1.5rem;
+    color: #003161;
+    padding: 1rem 0;
+    line-height: 1.8;
+    text-align: justify;
+}

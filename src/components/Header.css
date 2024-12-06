@@ -3,7 +3,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 49, 97, 0.8); /* Transparansi ditambahkan */
+    background: rgba(0, 49, 97, 0.65); /* Transparansi ditambahkan */
     z-index: 1000;
     display: grid;
     grid-template-columns: auto auto 1fr; /* 3 kolom: logo, spacer, navbar */

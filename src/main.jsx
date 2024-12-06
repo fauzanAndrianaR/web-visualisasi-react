@@ -5,6 +5,8 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import Dashboard from './Dashboard.jsx'
 import Looker from './Looker.jsx'
+import About from './About.jsx'
+
 
 
 
@@ -15,7 +17,7 @@ const router = createBrowserRouter([
   },
   {
     path : '/about',
-    element : <div> Hellow waold </div>
+    element : <About/>
   },
   {
     path : '/dashboard',
