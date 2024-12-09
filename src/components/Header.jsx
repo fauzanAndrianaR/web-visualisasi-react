@@ -16,7 +16,7 @@ function Header() {
       <div id="menu-bar" className="fas fa-bars"></div>
       <Link to="/" className="logo">
         <img src="logodisdik.png" alt="Logo Disdik" className="logo-img" />
-        <span>VISUALISASI</span> TIKomDik
+        <span>DATABASE</span> TIKomDik
       </Link>
       <nav className="navbar">
         <Link to="/" className="nav-link">Home</Link>

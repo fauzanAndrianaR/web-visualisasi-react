@@ -3,6 +3,8 @@ import { Bar, Pie } from "react-chartjs-2";
 import { useLocation } from "react-router-dom";
 import "chart.js/auto";
 import "./DataSiswa.css";
+import ChartDataLabels from "chartjs-plugin-datalabels"; // Import plugin
+
 
 const DataSiswa = () => {
   const [data, setData] = useState([]);
@@ -12,7 +14,6 @@ const DataSiswa = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const type = queryParams.get("type") || "siswa";
@@ -104,50 +105,126 @@ const DataSiswa = () => {
         label: "Proporsi Siswa",
         data: [totalNegeri, totalSwasta],
         backgroundColor: ["#3b82f6", "#f97316"],
+        borderWidth: 0, 
       },
     ],
   };
+  const barOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "white", // Warna label legenda menjadi putih
+        },
+      },
+      datalabels: {
+        display: function () {
+          // Tampilkan angka hanya jika filter dropdown atau search digunakan
+          const isFiltered =
+            selectedKabupaten !== "Semua" || searchTerm.trim() !== "";
+          return isFiltered;
+        },
+        color: "white",
+        font: {
+          weight: "bold",
+        },
+        formatter: (value) => {
+          // Format angka menjadi pemisah ribuan
+          return new Intl.NumberFormat("id-ID").format(value);
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "white", // Warna teks label sumbu X
+        },
+  
+      },
+      y: {
+        ticks: {
+          color: "white", // Warna teks label sumbu Y
+        },
+       
+      },
+    },
+  };
+  
+  const pieOptions = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "white", // Warna label legenda menjadi putih
+        },
+      },
+      datalabels: {
+        display: true, // Selalu tampilkan angka
+        color: "white",
+        font: {
+          weight: "bold",
+        },
+        formatter: (value) => {
+          // Format angka menjadi pemisah ribuan
+          return new Intl.NumberFormat("id-ID").format(value);
+        },
+      },
+    },
+  };
+  
 
   return (
     <div className="visualisasi-container">
-      <h1>Visualisasi Data Siswa</h1>
-      <h1>Data {type.charAt(0).toUpperCase() + type.slice(1)}</h1>
+    <h1>DATABASE {type.toUpperCase()}</h1>
 
-
-      <div className="controls-container">
-        <div className="dropdown-container">
-          <label htmlFor="kabupaten">Pilih Kabupaten/Kota: </label>
-          <select
-            id="kabupaten"
-            value={selectedKabupaten}
-            onChange={handleDropdownChange}
-          >
-            <option value="Semua">Semua</option>
-            {data.map((item) => (
-              <option key={item.no} value={item.kabupaten_kota}>
-                {item.kabupaten_kota}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Cari Kabupaten/Kota..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-        </div>
+    <div className="controls-container">
+      <div className="dropdown-container">
+        <label htmlFor="kabupaten">Pilih Kabupaten/Kota: </label>
+        <select
+          id="kabupaten"
+          value={selectedKabupaten}
+          onChange={handleDropdownChange}
+        >
+          <option value="Semua">Semua</option>
+          {data.map((item) => (
+            <option key={item.no} value={item.kabupaten_kota}>
+              {item.kabupaten_kota}
+            </option>
+          ))}
+        </select>
       </div>
-
-      <div className="charts-container">
-        <div className="bar-chart">
-          <Bar data={barData} />
-        </div>
-        <div className="pie-chart">
-          <Pie data={pieData} />
-        </div>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Cari Kabupaten/Kota..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
       </div>
+    </div>
+
+
+    <div className="charts-container">
+      <div className="bar-chart">
+        <Bar data={barData} options={barOptions} plugins={[ChartDataLabels]} />
+      </div>
+      <div className="pie-chart">
+        <Pie data={pieData} options={pieOptions} plugins={[ChartDataLabels]} />
+      </div>
+    </div>
+    <div className="scorecards-container">
+    <div className="scorecard">
+      <h3>Total {type.charAt(0).toUpperCase() + type.slice(1)}</h3>
+      <p>{new Intl.NumberFormat("id-ID").format(filteredData.reduce((sum, item) => sum + item.jml, 0))}</p>
+    </div>
+    <div className="scorecard">
+      <h3>Total {type.charAt(0).toUpperCase() + type.slice(1)} Negeri</h3>
+      <p>{new Intl.NumberFormat("id-ID").format(filteredData.reduce((sum, item) => sum + item.negeri, 0))}</p>
+    </div>
+    <div className="scorecard">
+      <h3>Total {type.charAt(0).toUpperCase() + type.slice(1)} Swasta</h3>
+      <p>{new Intl.NumberFormat("id-ID").format(filteredData.reduce((sum, item) => sum + item.swasta, 0))}</p>
+    </div>
+  </div>
+
 
       <div className="table-container">
         <h2>Data Detail</h2>
