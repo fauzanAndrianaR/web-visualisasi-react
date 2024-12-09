@@ -1,11 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
+import App from './pages/App.jsx'
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
-import Dashboard from './Dashboard.jsx'
-import Looker from './Looker.jsx'
-import About from './About.jsx'
+import Dashboard from './pages/Dashboard.jsx'
+import Looker from './pages/Looker.jsx'
+import About from './pages/About.jsx'
 
 
 
